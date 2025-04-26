@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6x8v0j6y5n3q"]
+
+[ext_resource type="Script" path="res://combat_ui.gd" id="1_2u4vx"]
+
+[node name="CombatUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2u4vx")
+
+[node name="PlayerHealthBar" type="ProgressBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 40.0
+grow_horizontal = 0
+value = 100.0
+show_percentage = false
+
+[node name="PlayerHealthLabel" type="Label"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "Player HP: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyHealthBar" type="ProgressBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 60.0
+offset_right = -20.0
+offset_bottom = 80.0
+grow_horizontal = 0
+value = 50.0
+show_percentage = false
+
+[node name="EnemyHealthLabel" type="Label"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 60.0
+offset_right = -20.0
+offset_bottom = 80.0
+grow_horizontal = 0
+text = "Enemy HP: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionButtons" type="VBoxContainer"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -100.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AttackButton" type="Button"]
+layout_mode = 2
+text = "Attack"
+
+[node name="DefendButton" type="Button"]
+layout_mode = 2
+text = "Defend"
+
+[node name="CombatLog" type="RichTextLabel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -200.0
+offset_right = -220.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+bbcode_enabled = true
+scroll_following = true
+
+[node name="WinScreen" type="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinLabel" type="Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Victory!"
+horizontal_alignment = 1
+vertical_alignment = 1 

@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0wnf1q22pgn0"]
+
+[ext_resource type="Script" uid="uid://i4wnb1l0rm1l" path="res://control_ui.gd" id="1_e5hdt"]
+
+[node name="CombatUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5hdt")
+
+[node name="PlayerHealth" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="PlayerHealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EnemyHealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="EnemyHealthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ActionButtons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AttackButton" type="Button" parent="ActionButtons"]
+layout_mode = 2
+
+[node name="DefendButton" type="Button" parent="ActionButtons"]
+layout_mode = 2
+
+[node name="CombatLog" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinScreen" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinLabel" type="Label" parent="WinScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
