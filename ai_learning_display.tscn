@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6x8v0j6y5n3q"]
+
+[ext_resource type="Script" path="res://ai_learning_display.gd" id="1_2k4m3"]
+
+[node name="AILearningDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 120.0
+grow_horizontal = 0
+script = ExtResource("1_2k4m3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LearningLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "AI Learning System Active"
+horizontal_alignment = 1
+
+[node name="StyleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 40.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "Analyzing Player Style..."
+horizontal_alignment = 1
+
+[node name="StateLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 70.0
+offset_bottom = 90.0
+grow_horizontal = 2
+text = "Initializing AI State..."
+horizontal_alignment = 1 

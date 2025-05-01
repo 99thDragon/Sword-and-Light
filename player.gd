@@ -7,6 +7,7 @@ var is_charged = false  # Track if player is charged
 
 @onready var idle_sprite = $IdleSprite
 @onready var attack_sprite = $AttackSprite
+@onready var charge_sprite = $ChargeSprite
 
 func _ready():
 	print("Player script is ready.")
@@ -14,12 +15,14 @@ func _ready():
 	# Start with idle animation
 	idle_sprite.visible = true
 	attack_sprite.visible = false
+	charge_sprite.visible = false
 	idle_sprite.play("default")
 	
 	# Make sure idle animation loops
 	idle_sprite.sprite_frames.set_animation_loop("default", true)
-	# Make sure attack animation doesn't loop
+	# Make sure attack and charge animations don't loop
 	attack_sprite.sprite_frames.set_animation_loop("default", false)
+	charge_sprite.sprite_frames.set_animation_loop("default", false)
 
 func _process(_delta):
 	if is_player_turn and Input.is_action_just_pressed("ui_accept"):  # Space bar
@@ -47,10 +50,23 @@ func perform_action(action):
 		
 	elif action == "defend":
 		print("Player defends!")
+		# Add visual feedback for defense
+		modulate = Color(0.5, 0.5, 1.0)  # Slight blue tint
+		await get_tree().create_timer(0.5).timeout
+		modulate = Color(1, 1, 1)  # Reset color
 		
 	elif action == "charge":
 		print("Player charges up!")
 		is_charged = true
+		# Switch to charge animation
+		idle_sprite.visible = false
+		charge_sprite.visible = true
+		charge_sprite.play("default")
+		await charge_sprite.animation_finished
+		# Return to idle animation
+		charge_sprite.visible = false
+		idle_sprite.visible = true
+		idle_sprite.play("default")
 		
 	# End turn after performing action
 	is_player_turn = false

@@ -168,7 +168,15 @@ sprite_frames = SubResource("SpriteFrames_n0g06")
 frame_progress = 0.3538
 
 [node name="AttackSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(45, 0)
+sprite_frames = SubResource("SpriteFrames_qgdfx")
+frame = 11
+frame_progress = 1.0
+speed_scale = 4.0
+
+[node name="ChargeSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_qgdfx")
 frame = 11
 frame_progress = 1.0

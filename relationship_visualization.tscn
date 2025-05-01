@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6x8v0j6y5n3q"]
+
+[ext_resource type="Script" path="res://relationship_visualization.gd" id="1_2k4m3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.2, 0.2, 0.8)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="RelationshipVisualization" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2k4m3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GraphContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlPanel" type="Panel" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 400.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ControlPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Relationship Controls"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="FilterContainer" type="VBoxContainer" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlPanel/VBoxContainer/FilterContainer"]
+layout_mode = 2
+text = "Filter by Type:"
+
+[node name="FilterOptions" type="OptionButton" parent="CanvasLayer/ControlPanel/VBoxContainer/FilterContainer"]
+layout_mode = 2
+item_count = 4
+popup/item_0/text = "All"
+popup/item_0/id = 0
+popup/item_1/text = "Friends"
+popup/item_1/id = 1
+popup/item_2/text = "Enemies"
+popup/item_2/id = 2
+popup/item_3/text = "Neutral"
+popup/item_3/id = 3
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="LayoutContainer" type="VBoxContainer" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ControlPanel/VBoxContainer/LayoutContainer"]
+layout_mode = 2
+text = "Layout:"
+
+[node name="LayoutOptions" type="OptionButton" parent="CanvasLayer/ControlPanel/VBoxContainer/LayoutContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Circular"
+popup/item_0/id = 0
+popup/item_1/text = "Force-Directed"
+popup/item_1/id = 1
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Refresh Graph"
+
+[node name="Button2" type="Button" parent="CanvasLayer/ControlPanel/VBoxContainer"]
+layout_mode = 2
+text = "Export Data" 

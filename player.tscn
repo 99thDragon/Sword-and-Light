@@ -100,3 +100,10 @@ sprite_frames = SubResource("SpriteFrames_pbfsw")
 frame = 4
 frame_progress = 1.0
 speed_scale = 4.0
+
+[node name="ChargeSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_pbfsw")
+frame = 4
+frame_progress = 1.0
+speed_scale = 4.0

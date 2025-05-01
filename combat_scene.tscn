@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8bekpp4eerat"]
+[gd_scene load_steps=9 format=3 uid="uid://c8bekpp4eerat"]
 
 [ext_resource type="Script" uid="uid://cu7tmmk45ptan" path="res://combat_scene.gd" id="1_s1qhn"]
 [ext_resource type="PackedScene" uid="uid://171q4gc7rpjd" path="res://player.tscn" id="2_lo0hl"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bc3n5go7i2vq3" path="res://enemy.tscn" id="3_g4kj8"]
 [ext_resource type="Script" uid="uid://bnt4aeicgjj6" path="res://player.gd" id="3_vqmxj"]
 [ext_resource type="Script" uid="uid://cp0lcu5x2jt3i" path="res://combat_ui.gd" id="5_vqmxj"]
+[ext_resource type="PackedScene" uid="uid://c8q7v0j6y5n3q" path="res://performance_monitor.tscn" id="6_vqmxj"]
+[ext_resource type="PackedScene" uid="uid://b6x8v0j6y5n3q" path="res://relationship_visualization.tscn" id="7_vqmxj"]
 
 [node name="CombatScene" type="Node2D"]
 script = ExtResource("1_s1qhn")
@@ -38,12 +40,16 @@ offset_left = -205.0
 offset_top = 56.0
 offset_right = -5.0
 offset_bottom = 83.0
+value = 100.0
+show_percentage = false
 
 [node name="PlayerHealthLabel" type="Label" parent="CombatUI"]
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 23.0
 text = "Player HP: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnemyHealthBar" type="ProgressBar" parent="CombatUI"]
 layout_mode = 1
@@ -55,6 +61,8 @@ offset_top = 56.0
 offset_right = 220.0
 offset_bottom = 83.0
 grow_horizontal = 0
+value = 100.0
+show_percentage = false
 
 [node name="EnemyHealthLabel" type="Label" parent="CombatUI"]
 layout_mode = 1
@@ -65,7 +73,9 @@ offset_left = -106.0
 offset_right = 94.0
 offset_bottom = 23.0
 grow_horizontal = 0
-text = "Enemy HP: 50"
+text = "Enemy HP: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ActionButtons" type="VBoxContainer" parent="CombatUI"]
 layout_mode = 1
@@ -80,12 +90,15 @@ grow_vertical = 0
 
 [node name="AttackButton" type="Button" parent="CombatUI/ActionButtons"]
 layout_mode = 2
+text = "Attack"
 
 [node name="DefendButton" type="Button" parent="CombatUI/ActionButtons"]
 layout_mode = 2
+text = "Defend"
 
 [node name="ChargeButton" type="Button" parent="CombatUI/ActionButtons"]
 layout_mode = 2
+text = "Charge"
 
 [node name="CombatLog" type="RichTextLabel" parent="CombatUI"]
 layout_mode = 1
@@ -100,6 +113,8 @@ offset_right = 433.0
 offset_bottom = 596.0
 grow_horizontal = 0
 grow_vertical = 0
+bbcode_enabled = true
+scroll_following = true
 
 [node name="WinScreen" type="Panel" parent="CombatUI"]
 visible = false
@@ -120,6 +135,9 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "Victory!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="CombatUI/WinScreen"]
 layout_mode = 0
@@ -129,5 +147,23 @@ offset_right = 231.0
 offset_bottom = 131.0
 text = "Play Again"
 
+[node name="RelationshipButton" type="Button" parent="CombatUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "Show Relationships"
+
+[node name="RelationshipVisualization" parent="CombatUI" instance=ExtResource("7_vqmxj")]
+visible = false
+layout_mode = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 7.62939e-06)
+
+[node name="PerformanceMonitor" parent="." instance=ExtResource("6_vqmxj")]
